@@ -16,3 +16,9 @@ const newParagraph = document.createElement('p')
 newParagraph.textContent = 'You have ' + getThingsToDo.length + ' left'
 document.querySelector('body').appendChild(newParagraph)
 
+getThingsToDo.forEach(function (todo) {
+  const newParagraph = document.createElement('p')
+  newParagraph.textContent = getThingsToDo.text
+  document.querySelector('body').appendChild(newParagraph)
+    
+})
