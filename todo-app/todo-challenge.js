@@ -15,10 +15,17 @@ const getThingsToDo = function (todos) {
 const newParagraph = document.createElement('p')
 newParagraph.textContent = 'You have ' + getThingsToDo.length + ' left'
 document.querySelector('body').appendChild(newParagraph)
+//my answer:
+//getThingsToDo.forEach(function (todo) {
+//  const newParagraph = document.createElement('p')
+//  newParagraph.textContent = getThingsToDo.text
+//  document.querySelector('body').appendChild(newParagraph) 
+//})
+//misunderstood the problem. All content needs to be displayed on the web
 
-getThingsToDo.forEach(function (todo) {
+todos.forEach(function (todo) {
   const newParagraph = document.createElement('p')
-  newParagraph.textContent = getThingsToDo.text
-  document.querySelector('body').appendChild(newParagraph)
-    
+  newParagraph.textContent = todo.text
+  document.querySelector('body').appendChild(newParagraph) 
 })
+
