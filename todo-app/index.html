@@ -3,10 +3,17 @@
     <head></head>
     <body>
         <h1>Todos</h1>
-        <input id='search-input' type='text'><button>Search</button>
+        <form id='todo-form'>
+            <input name='newTodo' type='text'>
+            <button>Add a to do</button><br>
+            <label>
+                <input type='checkbox' id='hideCb'>Hide Completed
+            </label>
+        </form>
+        
         <p id='todoleft'></p>
-        <p>Filtered todos:</p>
+        
         <div id='todos-div'></div>
-        <script src="todo-input-challenge.js"></script>
+        <script src="todo-checkboxes-challenge.js"></script>
     </body>
 </html>
