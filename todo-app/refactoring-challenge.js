@@ -1,9 +1,3 @@
-const addTodo = function (newTodo){
-    const todo = JSON.stringify({title:newTodo,completed:false})
-    localStorage.setItem('todos',todo)
-    displayTodos()
-}
-
 if (localStorage.getItem('todos') === null) {
     const p = document.createElement('p')
     p.textContent = 'no local storage'
