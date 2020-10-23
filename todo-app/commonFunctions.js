@@ -8,3 +8,8 @@ const displayTodos = function(){
         document.querySelector('#todos-div').appendChild (p)
       //})
 }  
+const addTodo = function (newTodo){
+    const todo = JSON.stringify({title:newTodo,completed:false})
+    localStorage.setItem('todos',todo)
+    displayTodos()
+}
