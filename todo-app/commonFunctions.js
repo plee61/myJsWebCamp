@@ -18,7 +18,11 @@ const displayTodos = function(){
       //})
 }  
 const addTodo = function (newTodo){
-    const todo = JSON.stringify({title:newTodo,completed:false})
+    const todo = JSON.stringify(
+        {id=uuidv4();
+         title:newTodo,
+         completed:false}
+    )
     localStorage.setItem('todos',todo)
     displayTodos()
 }
