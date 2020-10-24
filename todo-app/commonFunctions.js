@@ -3,9 +3,18 @@ const displayTodos = function(){
     document.querySelector('#todos-div').innerHTML = ''
     
     // todos.forEach(function (todo) { ** chrome does not save multiple data for each key
-        const p = document.createElement('p')
-        p.textContent = JSON.parse(localStorage.getItem('todos')).title
-        document.querySelector('#todos-div').appendChild (p)
+        
+        const d = document.createElement('div')
+        const cb = document.createElement('input')
+        const sp = document.createElement('span')
+        const btn = document.createElement('btn')
+        cb.setAttribute('type','checkbox')
+        sp.textContent = JSON.parse(localStorage.getItem('todos')).title
+        btn.text = 'x'
+        document.querySelector('#todos-div').appendChild (d)
+        document.querySelector('#todos-div').appendChild (cb)
+        document.querySelector('#todos-div').appendChild (sp)
+        document.querySelector('#todos-div').appendChild (btn)
       //})
 }  
 const addTodo = function (newTodo){
