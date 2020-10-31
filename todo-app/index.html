@@ -3,6 +3,10 @@
     <head></head>
     <body>
         <h1>Todos</h1>
+        <input id="search-text" type="text" placeholder="Filter todos">
+        <label>
+            <input type="checkbox" id="hide-completed"> Hide completed
+        </label>
         <form id='todo-form'>
             <input name='newTodo' type='text'>
             <button id='addBtn'>Add a to do</button><br>
@@ -14,6 +18,7 @@
         <div id='todos-div'></div>
         <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
         <script src="commonFunctions.js"></script>
-        <script src="refractoring-challenge.js"></script>
+        <script src="refactoring-challenge.js"></script>
     </body>
 </html>
+
