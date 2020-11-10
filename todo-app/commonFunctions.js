@@ -28,15 +28,19 @@ const displayTodos = function(todos){
 const generateTodo = function(todo){ 
     const d = document.createElement('div')
     const cb = document.createElement('input')
-    const sp = document.createElement('span')
+    //const sp = document.createElement('span')
+    const anchor = document.createElement('a')
     const removeBtn = document.createElement('button')
 
     cb.setAttribute('type','checkbox')
     cb.checked = todo.completed 
-
-    sp.textContent = todo.title
     removeBtn.textContent = 'x'
 
+    //sp.textContent =  + todo.title + "</a>"
+    anchor.target = "_blank"
+    anchor.href = "/edit.html#"+todo.id
+    anchor.innerText = todo.title
+    
     document.querySelector('#todos-div').appendChild (d)
     d.appendChild (cb) 
 
@@ -46,11 +50,12 @@ const generateTodo = function(todo){
         saveTodos(todos)
         displayTodos(todos)
     })
-    d.appendChild (sp)
+    //d.appendChild (sp)
+    d.appendChild (anchor)
     d.appendChild (removeBtn)
 
     removeBtn.addEventListener('click', function(){
-        deleteTodo(todo.id)
+        deleteTodo(todos,todo.id)
         saveTodos(todos)
         displayTodos(todos)})
     }
@@ -63,9 +68,10 @@ const modifyCompleted = function(completeStatus, id){
     
     if (todoIndex > -1) {
         todos[todoIndex].completed = completeStatus    
+        todos[todoIndex].modifyAt = moment()
     }
 }
-const deleteTodo = function (todoId){
+const deleteTodo = function (todos,todoId){
     const todoIndex = todos.findIndex(function(todo){
          return todo.id === todoId
      })
@@ -78,6 +84,15 @@ const deleteTodo = function (todoId){
     
     localStorage.setItem('todos',JSON.stringify(todos))
     
+ }
+ const generateLastUpdated = function(todo){
+     
+     if (todo.modifyAt === undefined){
+        return 'created:' + moment(todo.createAt).fromNow() 
+     }
+     else {
+        return 'last updated:' + moment(todo.modifyAt).fromNow()
+     }
  }
  
 
