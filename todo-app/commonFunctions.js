@@ -87,13 +87,55 @@ const deleteTodo = function (todos,todoId){
  }
  const generateLastUpdated = function(todo){
      
-     if (todo.modifyAt === undefined){
-        return 'created:' + moment(todo.createAt).fromNow() 
+     if (todo.modifyAt === ''){
+        return 'created:' + moment(todo.createAt).fromNow() + ' at:' + moment(todo.createAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
      }
      else {
-        return 'last updated:' + moment(todo.modifyAt).fromNow()
+        return 'last updated:' + moment(todo.modifyAt).fromNow()  + ' at:' + moment(todo.modifyAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
      }
  }
  
-
+const sortTodos = function (sortBy, todos) {
+    
+    if (sortBy === 'edited'){
+        return todos.sort(function(a,b){
+            
+            if (a.modifyAt > b.modifyAt) { 
+                return 1
+            }
+            else if (a.modifyAt < b.modifyAt){
+                return -1
+            } else {
+                return 0
+            }
+        })
+    }
+    else if (sortBy === 'created'){
+        return todos.sort(function(a,b){
+            if (a.createAt > b.createAt) { 
+                return 1
+            }
+            else if (a.createAt < b.createAt){
+                return -1
+            } else {
+                return 0
+            }
+        })
+    }
+    else if (sortBy === 'alphabet'){
+        return todos.sort(function(a,b){
+            if (a.title > b.title) { 
+                return 1
+            }
+            else if (b.title > a.title){
+                return -1
+            } else {
+                return 0
+            }
+        })
+    }
+    else {
+        return todos
+    }
+}
 

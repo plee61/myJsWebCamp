@@ -1,5 +1,6 @@
 let todos = getSavedData()
 
+sortTodos('edited',todos)
 displayTodos(todos)
 
 document.querySelector('#search-text').addEventListener('input', function (e) {
@@ -48,6 +49,11 @@ window.addEventListener('storage',function(e){
         displayTodos(todos)
         
     }
+})
+document.querySelector('#sort-by').addEventListener('change',function(e){
+    sortTodos(e.target.value, todos)
+    displayTodos(todos)
+
 })
 // const date1 = moment()
 // date1.date(15)

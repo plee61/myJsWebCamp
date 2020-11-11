@@ -6,12 +6,15 @@ let updatedElement = document.querySelector('#lastUpdated')
 const todoId = location.hash.substring(1)
 
 let filteredTodo = todos.find(function(todo){
-    return todo.id=todoId
+    
+    return todo.id===todoId
 })
+
 if (filteredTodo===undefined){
-    location.href('/index.html')
+    location.href='/index.html'
 }
 else{
+
     todoDesc.value = filteredTodo.desc
     todoTitle.value = filteredTodo.title
     updatedElement.textContent = generateLastUpdated(filteredTodo)
