@@ -1,21 +1,22 @@
-const getSavedData = function () {
+const getSavedData = () => {
     
     const Jstorage = localStorage.getItem('todos')
-    if (Jstorage !== null){
-        return JSON.parse(Jstorage)
-    } else {
-       return []
-    }
+    return Jstorage ? JSON.parse(Jstorage) : []
+    // if (Jstorage !== null){
+    //     return JSON.parse(Jstorage)
+    // } else {
+    //    return []
+    // }
 
 }
-const displayTodos = function(todos){
+const displayTodos = (todos) => {
     
-    if (todos === null) {return}
+    if (!todos ) {return}
     document.querySelector('#todos-div').innerHTML = ''
     const hide = document.querySelector('#hide-completed').checked
     const search = document.querySelector('#search-text').value.toLowerCase()
     
-    todos.forEach(function (todo) { 
+    todos.forEach((todo) => { 
        if (!hide || (hide && todo.completed)) {
     
        if (todo.title.toLowerCase().includes(search))
@@ -25,7 +26,7 @@ const displayTodos = function(todos){
         
     })
 }
-const generateTodo = function(todo){ 
+const generateTodo = (todo) => { 
     const d = document.createElement('div')
     const cb = document.createElement('input')
     //const sp = document.createElement('span')
@@ -60,45 +61,41 @@ const generateTodo = function(todo){
         displayTodos(todos)})
     }
 
-const modifyCompleted = function(completeStatus, id){
+const modifyCompleted = (completeStatus, id) => {
     
-    const todoIndex = todos.findIndex(function(todo){
-        return  todo.id === id
-    })
+    const todoIndex = todos.findIndex((todo) => todo.id === id)
     
     if (todoIndex > -1) {
         todos[todoIndex].completed = completeStatus    
         todos[todoIndex].modifyAt = moment()
     }
 }
-const deleteTodo = function (todos,todoId){
-    const todoIndex = todos.findIndex(function(todo){
-         return todo.id === todoId
-     })
+const deleteTodo = (todos,todoId) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === todoId)
     
     if (todoIndex > -1) {
         todos.splice(todoIndex,1)
     }
  }
- const saveTodos = function (todos){
+ const saveTodos = (todos) =>{
     
     localStorage.setItem('todos',JSON.stringify(todos))
     
  }
- const generateLastUpdated = function(todo){
+ const generateLastUpdated = (todo) => {
      
-     if (todo.modifyAt === ''){
-        return 'created:' + moment(todo.createAt).fromNow() + ' at:' + moment(todo.createAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
+     if (todo.modifyAt){
+        return 'last updated:' + moment(todo.modifyAt).fromNow()  + ' at:' + moment(todo.modifyAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
      }
      else {
-        return 'last updated:' + moment(todo.modifyAt).fromNow()  + ' at:' + moment(todo.modifyAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
+        return 'created:' + moment(todo.createAt).fromNow() + ' at:' + moment(todo.createAt).format('dddd, MMMM Do YYYY, h:mm:ss a')
      }
  }
  
-const sortTodos = function (sortBy, todos) {
+const sortTodos = (sortBy, todos) => {
     
     if (sortBy === 'edited'){
-        return todos.sort(function(a,b){
+        return todos.sort((a,b)=>{
             
             if (a.modifyAt > b.modifyAt) { 
                 return 1
@@ -111,7 +108,7 @@ const sortTodos = function (sortBy, todos) {
         })
     }
     else if (sortBy === 'created'){
-        return todos.sort(function(a,b){
+        return todos.sort((a,b)=>{
             if (a.createAt > b.createAt) { 
                 return 1
             }
@@ -123,7 +120,7 @@ const sortTodos = function (sortBy, todos) {
         })
     }
     else if (sortBy === 'alphabet'){
-        return todos.sort(function(a,b){
+        return todos.sort((a,b)=>{
             if (a.title > b.title) { 
                 return 1
             }
