@@ -1,13 +1,13 @@
+'use strict'
 const getSavedData = () => {
+    try {
+        const Jstorage = localStorage.getItem('todos')
+        return Jstorage ? JSON.parse(Jstorage) : []
+    }
+    catch(e){
+        return []    
+    }
     
-    const Jstorage = localStorage.getItem('todos')
-    return Jstorage ? JSON.parse(Jstorage) : []
-    // if (Jstorage !== null){
-    //     return JSON.parse(Jstorage)
-    // } else {
-    //    return []
-    // }
-
 }
 const displayTodos = (todos) => {
     
