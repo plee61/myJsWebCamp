@@ -1,18 +1,25 @@
-const guessLimit = 2
+const guessLimit = 5
 const hangmanWord = 'Love'
 const outputElement = document.querySelector('#output')
 const attemptLeftElement = document.querySelector('#attempt-left')
 const guessWordElement = document.querySelector('#guessWord-input')
-document.querySelector('#guess-btn').addEventListener('click', function () {
-    const guessWord = guessWordElement.value.toLowerCase()
-    outputElement.textContent = hangman.getPuzzle(guessWord)
-    attemptLeftElement.textContent = hangman.getAttempted()
-    guessWordElement.value = ''
 
+const hangman = new Hangman(hangmanWord,guessLimit)
+
+document.querySelector('#status').textContent = hangman.statusMessage
+
+document.querySelector('#guess-btn').addEventListener('click', function () {
+    hangman.puzzle = guessWordElement.value.toLowerCase()
+    
+    outputElement.textContent = hangman.puzzle
+    attemptLeftElement.textContent = `You have ${hangman.remaining} attempts left`
+    guessWordElement.value = ''
+    document.querySelector('#status').textContent = hangman.statusMessage
 })
 document.querySelector('#refresh-btn').addEventListener('click', function () {
     hangman.refresh()
     outputElement.textContent = ''
     attemptLeftElement.textContent = ''
+    document.querySelector('#status').textContent = hangman.statusMessage
 })
-const hangman = new Hangman(hangmanWord,guessLimit)
+
