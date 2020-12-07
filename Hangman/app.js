@@ -56,22 +56,14 @@ class Hangman {
         this.status = 'Playing'    
     }
 }
-// Making an HTTP request
-const request = new XMLHttpRequest()
-
-request.addEventListener('readystatechange', (e) => {
-if ((e.target.readyState === 4) && (e.target.status === 200)) {
-    const countries = JSON.parse(e.target.responseText)
-    country = countries.find((c)=>{return (c.alpha2Code==='MY')})
-    console.log(country.name)
-}
-else if (e.target.readyState === 4) {
-    console.log('An error has taken place')
-}
+getCountryInfo('MY',(error,countryInfo)=>{
+    if (error){
+        console.log(`getPuzzle error: ${error}`)
+    }
+    else {
+        console.log(`country code: MY. Country name: ${countryInfo}`)
+    }
 })
-request.open('GET', 'https://restcountries.eu/rest/v2/all')
-request.send()
-
 // const Hangman = function(hangmanWord, limit){
 
 //     this.hangmanWord = hangmanWord.toLowerCase().split('')
