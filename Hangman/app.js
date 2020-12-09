@@ -56,14 +56,18 @@ class Hangman {
         this.status = 'Playing'    
     }
 }
-getCountryInfo('MY',(error,countryInfo)=>{
-    if (error){
-        console.log(`getPuzzle error: ${error}`)
-    }
-    else {
-        console.log(`country code: MY. Country name: ${countryInfo}`)
-    }
-})
+
+ getCountryInfo('MY').then((data) => {
+        console.log(`country code: MY. Country name: ${data}`)
+    }).catch( (err) => {
+        console.log(`get country info error: ${err}`)
+    })
+
+    // myPromise.then((data) => {
+    //     console.log(data) // Will print "Example data"
+    //     }, (err) => {
+    //     console.log(`error ${err}`)
+    //     })
 // const Hangman = function(hangmanWord, limit){
 
 //     this.hangmanWord = hangmanWord.toLowerCase().split('')

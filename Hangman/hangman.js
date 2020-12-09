@@ -22,4 +22,3 @@ document.querySelector('#refresh-btn').addEventListener('click', function () {
     attemptLeftElement.textContent = ''
     document.querySelector('#status').textContent = hangman.statusMessage
 })
-
