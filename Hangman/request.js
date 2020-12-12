@@ -10,6 +10,17 @@ const getCountryInfo = (countryCode) => {
             return country.name
         })        
 }
+const getLocation = () => {
+    return fetch('https://ipinfo.io/json?token=e0a43294879563', {}).then((response) => {
+        if (response.status === 200) {
+            return response.json()
+        } else {
+            throw new Error('Unable to fetch ip info')
+        } }).then((resolve) => {
+            
+            return resolve
+        }) 
+}
 // const getCountryInfo = (countryCode) => new Promise((resolve,reject) => {
 //     // Making an HTTP request
 //     const request = new XMLHttpRequest()

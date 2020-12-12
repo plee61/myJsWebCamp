@@ -62,7 +62,15 @@ class Hangman {
     }).catch( (err) => {
         console.log(`get country info error: ${err}`)
     })
-
+getLocation().then((data)=>{
+        console.log(`ip region: ${data.region}, ${data.ip}`)
+        return getCountryInfo(data.country)
+            
+        }).then((data) => {
+            console.log(`ip region: ${data.region}, ${data}`)
+        }).catch( (err) => {
+        console.log(`get ip info error: ${err}`)
+    })
     // myPromise.then((data) => {
     //     console.log(data) // Will print "Example data"
     //     }, (err) => {
