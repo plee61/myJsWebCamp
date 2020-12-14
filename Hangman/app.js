@@ -67,10 +67,16 @@ getLocation().then((data)=>{
         return getCountryInfo(data.country)
             
         }).then((data) => {
-            console.log(`ip region: ${data.region}, ${data}`)
+            console.log(`country name: ${data}`)
         }).catch( (err) => {
         console.log(`get ip info error: ${err}`)
     })
+getCurrentCountry().then((data) => {
+        console.log(`My current country name: ${data}`)
+    }).catch( (err) => {
+        console.log(`get current country info error: ${err}`)
+    })
+
     // myPromise.then((data) => {
     //     console.log(data) // Will print "Example data"
     //     }, (err) => {
