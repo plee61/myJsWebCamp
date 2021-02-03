@@ -1,0 +1,40 @@
+Visual Studio Code integration with GitHub
+Youtube with Bill Raymond
+
+1. Create a folder with VSc.
+   create an HTML file
+2. Click souce control icon on the left panel
+   Click initialise Git (not publish to GIT)
+3. Commit changes 
+   click + sign next to file
+   Enter a message on the bar,
+   Create a branch when pressed enter
+4. Create a new repository on GIT
+   Copy the web link
+5. VSc add remote before Push
+   open command pallete 
+   type add remote, enter
+   enter web link from 4.
+6. Fetch
+   type Fetch on command pallate to avoid problem with sync later
+7. Sync
+   type Sync on command pallate 
+   refresh site on GIT
+8. To download file from GIT
+   Aadd a file on GIT. 
+   VS type sync to pull the file from GIT (You can also use PULL)
+9. Create Branch
+   Command Pallete enter Create Branch 
+   Make changes to the file
+10.Merge Branch (command)
+   or click on the branch icon at the bottom toolbar
+11. Sync Branch
+   Make sure the Branch you wanted to push is selected
+   Type Sync on Command Pallete
+   note VSc does not allow Sync --all so Branch has to be synched separately.
+
+https://github.com/plee61/HelloWorld-Tutorial.git
+
+
+
+   
