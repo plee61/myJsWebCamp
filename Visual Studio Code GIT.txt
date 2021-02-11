@@ -34,6 +34,16 @@ Youtube with Bill Raymond
    note VSc does not allow Sync --all so Branch has to be synched separately.
 
 https://github.com/plee61/HelloWorld-Tutorial.git
+CLOSE repository
+pallete - GIT: Close repository
+Go to file explorer folder, show hidden file, delete the folder
+
+Download and clone git code to local pc
+https://www.youtube.com/watch?v=Fk12ELJ9Bww
+1. Go to source on left panel, click view pallete
+2. GIT Clone, paste the git repository URL
+3. select a local drive on PC
+4. click master on branch and select the branch you need to use
 
 
 
