@@ -39,7 +39,7 @@ const generateTodo = (todo) => {
     removeBtn.classList.add('button','button--text')
     //sp.textContent =  + todo.title + "</a>"
     anchor.target = "_blank"
-    anchor.href = "/edit.html#"+todo.id
+    anchor.href = "scripts/edit.html#"+todo.id
     anchor.innerText = todo.title
     
     document.querySelector('#todos-div').appendChild (d)
