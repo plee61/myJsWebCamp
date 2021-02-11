@@ -17,28 +17,27 @@ class Hangman {
     }
     get puzzle(){
         
-        if ((this.remaining <= 0)) {
+        if ((this.remaining < 0)) {
             return 'Please refresh to guess again'
         } 
         
         let output = ''
         this.hangmanWord.forEach(word => {
             if ( this.guessed.includes(word)){
-                output += word
+                output += '<span>'+ word +'</span>'
             }
             else {
                 output += this.noGuessed
             }
         });
         
-        
         return `Your guessed result: ${output}`    
     }
     get statusMessage() {
         if (this.guessed.length === 0) return this.status
-        if (this.guessed.every((word)=> this.hangmanWord.includes(word) )) 
+        if (this.hangmanWord.every((word)=> this.guessed.includes(word) )) 
         {
-            
+            console.log('remaining:'+this.remaining)//+'guessed:'+this.guessed+' hangmanword:'+this.hangmanWord)
             this.status = 'Finished'
             this.remaining = 0
         }

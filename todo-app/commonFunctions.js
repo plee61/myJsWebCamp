@@ -27,7 +27,7 @@ const displayTodos = (todos) => {
     })
 }
 const generateTodo = (todo) => { 
-    const d = document.createElement('div')
+    const d = document.createElement('label')
     const cb = document.createElement('input')
     //const sp = document.createElement('span')
     const anchor = document.createElement('a')
@@ -35,8 +35,8 @@ const generateTodo = (todo) => {
 
     cb.setAttribute('type','checkbox')
     cb.checked = todo.completed 
-    removeBtn.textContent = 'x'
-
+    removeBtn.textContent = 'remove'
+    removeBtn.classList.add('button','button--text')
     //sp.textContent =  + todo.title + "</a>"
     anchor.target = "_blank"
     anchor.href = "/edit.html#"+todo.id

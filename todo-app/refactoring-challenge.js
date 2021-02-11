@@ -14,10 +14,13 @@ document.querySelector('#hide-completed').addEventListener('change',function(e){
 })
 document.querySelector('#todo-form').addEventListener('submit',function(e){
     e.preventDefault()
+    const textInput = e.target.elements.newTodo.value.trim()
+    
+    if (textInput.length === 0) {return}
     const uId = uuidv4()
     
     todos.push( {id:uId,
-          title: e.target.elements.newTodo.value,
+          title: textInput,
           desc:'',
           createAt: moment(),
           modifyAt: '',

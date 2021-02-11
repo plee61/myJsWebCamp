@@ -11,7 +11,7 @@ document.querySelector('#status').textContent = hangman.statusMessage
 document.querySelector('#guess-btn').addEventListener('click', function () {
     hangman.puzzle = guessWordElement.value.toLowerCase()
     
-    outputElement.textContent = hangman.puzzle
+    outputElement.innerHTML = hangman.puzzle
     attemptLeftElement.textContent = `You have ${hangman.remaining} attempts left`
     guessWordElement.value = ''
     document.querySelector('#status').textContent = hangman.statusMessage
