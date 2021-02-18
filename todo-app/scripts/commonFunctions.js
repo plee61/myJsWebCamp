@@ -27,22 +27,24 @@ const displayTodos = (todos) => {
     })
 }
 const generateTodo = (todo) => { 
+    const dv = document.createElement('div')
     const d = document.createElement('label')
     const cb = document.createElement('input')
     //const sp = document.createElement('span')
     const anchor = document.createElement('a')
     const removeBtn = document.createElement('button')
+    
+    //document.querySelector('#todos-div').appendChild(d)
 
     cb.setAttribute('type','checkbox')
     cb.checked = todo.completed 
-    removeBtn.textContent = 'remove'
+    removeBtn.textContent = 'X'
     removeBtn.classList.add('button','button--text')
     //sp.textContent =  + todo.title + "</a>"
     anchor.target = "_blank"
     anchor.href = "scripts/edit.html#"+todo.id
     anchor.innerText = todo.title
     
-    document.querySelector('#todos-div').appendChild (d)
     d.appendChild (cb) 
 
     cb.addEventListener('change',function(){
@@ -54,17 +56,21 @@ const generateTodo = (todo) => {
     //d.appendChild (sp)
     d.appendChild (anchor)
     d.appendChild (removeBtn)
-
+    
+    
     removeBtn.addEventListener('click', function(){
         deleteTodo(todos,todo.id)
         saveTodos(todos)
-        displayTodos(todos)})
-    }
+        displayTodos(todos)
+    })
+    dv.appendChild(d)
+    document.querySelector('#todos-div').appendChild(dv)
+}
 
 const modifyCompleted = (completeStatus, id) => {
     
     const todoIndex = todos.findIndex((todo) => todo.id === id)
-    
+
     if (todoIndex > -1) {
         todos[todoIndex].completed = completeStatus    
         todos[todoIndex].modifyAt = moment()

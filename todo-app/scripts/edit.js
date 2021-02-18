@@ -19,7 +19,9 @@ else{
     todoTitle.value = filteredTodo.title
     updatedElement.textContent = generateLastUpdated(filteredTodo)
 }
-document.querySelector('#update-todo').addEventListener('click', function () {
+document.querySelector('#edit-form').addEventListener('submit',function(e){
+    e.preventDefault()
+//document.querySelector('#update-todo').addEventListener('click', function () {
 
     filteredTodo.title = todoTitle.value
     filteredTodo.desc = todoDesc.value

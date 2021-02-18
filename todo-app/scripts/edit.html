@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Edit To do</title>
+        <link href="/styles/style.css" rel="stylesheet">
+        <link href="/images/favicon.ico" rel="icon">
 
     </head>
     <BODY>
-        <H1>Edit page</H1>
-        <input id='todo-title'>
-        <textarea id='todo-desc'></textarea>
-        <button id='remove-todo'>remove todo</button>
-        <br>
-        <button id='update-todo'>update todo</button>
-        <br>
-        <label id='lastUpdated'></label>
+        <div class='header'>
+            <div class="container">
+                <h1 class="header__title">Edit page</h1>
+            </div>
+        </div>
+        <div class="container">     
+                <form id='edit-form'>
+                    <input id='todo-title' class="input">
+                    <button id='update-todo' class='button'>update todo</button>                
+                    <div>
+                        <textarea id='todo-desc' class='title-input'></textarea>
+                    </div>                                        
+                </form>
+            
+                <button id='remove-todo' class='button'>remove todo</button>
+                <div>
+                    <label id='lastUpdated'></label>
+                </div>
+            
+        </div>
         <script src="commonFunctions.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script> 
         <script src="edit.js"></script>

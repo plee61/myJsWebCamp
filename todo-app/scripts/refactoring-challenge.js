@@ -33,20 +33,20 @@ document.querySelector('#todo-form').addEventListener('submit',function(e){
     
     e.target.elements.newTodo.value = ''
 })
-
-document.querySelector('#create').addEventListener('click',function(){
-    const uId = uuidv4()
+// commented create button on index.html
+// document.querySelector('#create').addEventListener('click',function(){
+//     const uId = uuidv4()
  
-    todos.push( {id:uId,
-        title: '',
-        desc:'',
-        createAt:moment(),
-        modifyAt:'',
-        completed:false})
+//     todos.push( {id:uId,
+//         title: '',
+//         desc:'',
+//         createAt:moment(),
+//         modifyAt:'',
+//         completed:false})
   
-    saveTodos(todos)
-    location.href='/edit.html#'+uId
-})
+//     saveTodos(todos)
+//     location.href='scripts/edit.html#'+uId
+// })
 window.addEventListener('storage',function(e){
     if (e.key==='todos'){
         todos = JSON.parse(e.newValue)
