@@ -16,4 +16,4 @@ short hand to
 const under30 = people.filter((person) => person.age < 30)
 
 Part 2
-Arrow function dont' bind 'this'
+Arrow function dont' bind 'this' (eg. this.car)
