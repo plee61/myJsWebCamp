@@ -4,3 +4,16 @@ const square = function (num) {
 }
 short hand to:
 const square = (num) => num * num
+const people = [
+{name: Hannah, age: 46},
+{name: Alan, age: 57},
+{name: Joseph, age: 6}
+]
+const under30 = people.filter(function(person){
+  return person.age < 30
+})
+short hand to
+const under30 = people.filter((person) => person.age < 30)
+
+Part 2
+Arrow function dont' bind 'this'
