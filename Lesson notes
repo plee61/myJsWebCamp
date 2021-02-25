@@ -1,0 +1,6 @@
+Arrow functions Chapter 9
+const square = function (num) {
+  return num * num
+}
+short hand to:
+const square = (num) => num * num
