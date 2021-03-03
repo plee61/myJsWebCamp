@@ -44,7 +44,7 @@ document.querySelector('#remove-note').addEventListener('click', function () {
 })
 document.querySelector('#close-note').addEventListener('click', function () {
     
-    location.href='/index.html'
+    window.close()
 })
 window.addEventListener('storage',function(e){
     if (e.key==='notes'){
