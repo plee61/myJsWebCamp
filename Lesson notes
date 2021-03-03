@@ -23,3 +23,141 @@ Netlify - free
 Surge - free
 Bluehost - $3.95/mo
 HostGater - $3.95/mo
+
+Asynchronous Javascript
+========================
+1) Call back
+getPuzzle = (callback) => {
+ const request = new XMLHttpRequest()
+ request.addEventListener('readystatechange', (e) => {
+ if (e.target.readyState === 4 && e.target.status === 200) {
+ const data = JSON.parse(e.target.responseText)
+ callback(undefined, data.puzzle)
+ } else if (e.target.readyState === 4) {
+ callback('An error has taken place', undefined)
+ }
+ })
+ request.open('GET', 'http://puzzle.mead.io/puzzle?wordCount=3')
+ request.send()
+}
+
+getPuzzle((error, puzzle) => {
+ if (error) {
+ console.log(`Error: ${error}`)
+ } else {
+ console.log(puzzle)
+ }
+})
+2) closure
+const createCounter = () => {
+ let count = 0
+ return () => {
+ return count
+ }
+}
+const counter = createCounter()
+console.log(counter()) // Will print 0
+
+const createTipper = (baseTip) => {
+ return (amount) => {
+ return baseTip * amount
+ }
+}
+const tip20 = createTipper(.2)
+const tip30 = createTipper(.3)
+console.log(tip20(100))
+console.log(tip20(80))
+console.log(tip30(100))
+
+3) Exploring promises
+const myPromise = new Promise((resolve, reject) => {
+ setTimeout(() => {
+ resolve('Example data')
+ }, 2000)
+})
+
+const getDataPromise = (num) => new Promise((resolve, reject) => {
+ setTimeout(() => {
+ typeof num === 'number' ? resolve(num * 2) : reject('Number must be
+provided')
+ }, 2000)
+})
+
+getDataPromise(10).then((data) => {
+ getDataPromise(data).then((data) => {
+ console.log(data) // Will print "40"
+ }).catch((err) => {
+ console.log(err)
+ })
+}).catch((err) => {
+ console.log(err)
+})
+==> Chaining
+getDataPromise(10).then((data) => {
+ return getDataPromise(data)
+}).then((data) => {
+ console.log(data) // Will print "40"
+}).catch((err) => {
+ console.log(err)
+})
+
+Fetch API
+FETCh('http://puzzle.mead.io/puzzle', {}).then((response) => {
+ if (response.status === 200) {
+ return response.json()
+ } else {
+ throw new Error('Unable to fetch the puzzle')
+ }
+}).then((data) => {
+ console.log(data.puzzle)
+}).catch((error) => {
+ console.log(error)
+})
+
+=>Async/Await
+const processData = async () => {
+ return 101
+}
+processData().then((data) => {
+ console.log(data) // Will print "101"
+}).catch((error) => {
+ console.log(error)
+})
+=> throws errior
+const processData = async () => {
+ throw new Error('Something went wrong!')
+ return 101
+}
+processData().then((data) => {
+ console.log(data)
+}).catch((error) => {
+ console.log(error) // Will print error object
+})
+==> await
+const getPuzzle = async (wordCount) => {
+ const response = await
+fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+
+ if (response.status === 200) {
+ const data = await response.json()
+ return data.puzzle
+ } else {
+ throw new Error('Unable to get puzzle')
+ }
+}
+getPuzzle('2').then((puzzle) => {
+ console.log(puzzle)
+}).catch((err) => {
+ console.log(`Error: ${err}`)
+})
+==> async/await
+const getLocation = async () => {
+    const response = await fetch('https://ipinfo.io/json?token=e0a43294879563', {})
+        if (response.status === 200) {
+            return await response.json()
+        } else {
+            throw new Error('Unable to fetch ip info')
+        } 
+}
+
+
