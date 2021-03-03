@@ -160,4 +160,11 @@ const getLocation = async () => {
         } 
 }
 
+Publishing
+==========
+fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+fetch('https://ipinfo.io/json?token=e0a43294879563', {})
+change to:
+fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+fetch('//ipinfo.io/json?token=e0a43294879563', {})
 
