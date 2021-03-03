@@ -25,6 +25,19 @@ const displayTodos = (todos) => {
        }
         
     })
+    displayCompletedTodos()
+}
+const displayCompletedTodos = () => {
+    let completedCounter = 0
+    todos.forEach((todo) => { 
+        if (todo.completed) {
+            completedCounter += 1
+        }
+    } )
+    const todoleft = todos.length - completedCounter
+    
+    const p = document.querySelector('#todo-completed')
+    p.innerHTML = `You have completed ${completedCounter} todos, or you have ${todoleft} todos left `
 }
 const generateTodo = (todo) => { 
     const dv = document.createElement('div')

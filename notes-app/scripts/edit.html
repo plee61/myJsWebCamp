@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit To do</title>
+        <link href="/styles/style.css" rel="stylesheet">
+        <link href="/images/favicon.ico" rel="icon">
+
+    </head>
+    <BODY>
+        <div class='header'>
+            <div class="container">
+                <h1 class="header__title">Edit page</h1>
+            </div>
+        </div>
+        <div class="container">     
+                 <form id='edit-form'>
+                    <input id='note-title' class="input">
+                    <button id='update-note' class='button'>update</button>                
+                    <div>
+                        <textarea id='note-desc' class='title-input'></textarea>
+                    </div>                                        
+                </form>
+            
+                <button id='remove-note' class='button'>delete</button>
+                <button id='close-note' class='button'>close</button>
+                <div>
+                    <label id='lastUpdated'></label>
+                </div>
+            
+        </div>
+        <script src="commonFunctions.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script> 
+        <script src="edit.js"></script>
+    </BODY>
+</html>
