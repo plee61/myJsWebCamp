@@ -17,3 +17,9 @@ const under30 = people.filter((person) => person.age < 30)
 
 Part 2
 Arrow function dont' bind 'this' (eg. this.car)
+
+Hosting
+Netlify - free
+Surge - free
+Bluehost - $3.95/mo
+HostGater - $3.95/mo
