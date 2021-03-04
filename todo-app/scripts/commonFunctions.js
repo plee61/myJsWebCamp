@@ -17,7 +17,7 @@ const displayTodos = (todos) => {
     const search = document.querySelector('#search-text').value.toLowerCase()
     
     todos.forEach((todo) => { 
-       if (!hide || (hide && todo.completed)) {
+       if (!hide || !(hide && todo.completed)) {
     
        if (todo.title.toLowerCase().includes(search))
        

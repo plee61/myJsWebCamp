@@ -56,7 +56,7 @@ class Hangman {
     }
 }
 
- getCountryInfo('MY').then((data) => {
+getCountryInfo('MY').then((data) => {
         console.log(`country code: MY. Country name: ${data}`)
     }).catch( (err) => {
         console.log(`get country info error: ${err}`)
