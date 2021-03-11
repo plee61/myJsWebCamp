@@ -1,0 +1,75 @@
+Babel - to generate codes that are compatable cross browsers
+Webpack - to link files and modules for easy deployment
+
+Setup a boilerplate package.json file
+npm init -y
+# Install babel so we can run our command
+npm install -g babel-cli@6.26.0
+# Install a babel preset that tells babel what to change
+# this will generate a folder node_module in Visual studio code 
+npm install babel-preset-env@1.6.1
+babel input.js --out-file output.js --presets env
+
+package.json - add short cut 'build' in scripts
+"scripts": {
+    "build": "babel src/index.js --out-file public/scripts/bundle.js --presets env --watch"
+}
+then we can run building without having using long command
+>npm run build
+
+Avoiding Global Modules
+=======================
+uninstall babel and live-server
+npm uninstall -g babel live-server
+npm install babel-cli@6.26.0 live-server@1.2.0
+
+//package.json Other properties removed to keep things short
+{
+ "scripts": {
+ "serve": "live-server public",
+ "build": "babel src/index.js --out-file public/scripts/bundle.js --
+presets env --watch"
+ },
+ "dependencies": {
+ "babel-cli": "^6.26.0",
+ "babel-preset-env": "^1.6.1",
+ "live-server": "^1.2.0"
+ }
+}
+>npm run serve
+another cli window
+>npm run build
+
+Install Webpack
+===============
+install webpack@4.5.0 webpack-cli@2.0.14
+
+//package.json - Other properties removed to keep things short
+{
+ "scripts": {
+ "serve": "live-server public",
+ "webpack": "webpack",
+ "build": "babel src/index.js --out-file public/scripts/bundle.js --
+presets env --watch"
+ },
+ "dependencies": {
+ "babel-cli": "^6.26.0",
+ "babel-preset-env": "^1.6.1",
+ "live-server": "^1.2.0",
+ "webpack": "^4.5.0",
+ "webpack-cli": "^2.0.14"
+ }
+}
+
+webpack.config.js
+===================
+const path = require('path')
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'public/scripts'),
+        filename: 'bundle.js'
+    }
+}
+
