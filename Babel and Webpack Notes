@@ -73,3 +73,14 @@ module.exports = {
     }
 }
 
+Adding babel to the Webpack
+===========================
+Install Babel loader
+npm install babel-loader@7.1.4
+==I tried to install the latest babel-loader@8.0.0
+but failed to build, the error was 
+ERROR in ./src/index.js
+Module build failed: Error: Cannot find module 'env'
+
+the 'env' was a reference in webpack.config.js
+So i unstalled babel-loader and reinstall babel-loader@7.1.4 fixed
