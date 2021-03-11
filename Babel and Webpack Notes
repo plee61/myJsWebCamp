@@ -84,3 +84,6 @@ Module build failed: Error: Cannot find module 'env'
 
 the 'env' was a reference in webpack.config.js
 So i unstalled babel-loader and reinstall babel-loader@7.1.4 fixed
+
+In package.json
+remove existing build and change webpack to build 
