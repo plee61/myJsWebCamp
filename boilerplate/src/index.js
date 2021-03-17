@@ -1,7 +1,7 @@
 import otherSquare, {add, name} from './utilities'
 import scream from './scream'
 console.log(scream(name))
-console.log(add(10,2))
+console.log(add(10,5))
 console.log(otherSquare(5))
 //"build": "babel src/index.js --out-file public/scripts/bundle.js --presets env --watch"
 // const name = 'Alan'
