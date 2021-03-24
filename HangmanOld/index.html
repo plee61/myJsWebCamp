@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hangman</title>
+        <link href='styles/styles.css' rel='stylesheet'>
+        <link href='images/IMG_0083.JPG' rel='icon'>
+    </head>
+    <body>
+        <div>
+            <h1>Hangman</h1>
+        
+            <label for="guessWord-input">Enter a character</label>
+            <input type='text' id='guessWord-input'>
+            <button id='guess-btn' class='button'>Guess</button>
+            <p id=output class='puzzle'>your guessed result:  </p>
+            <p id='attempt-left'></p>
+            <p id='status'></p>
+            <button id='refresh-btn' class='button'>Refresh</button>
+        </div>
+        
+        <script src="/scripts/request.js"></script>
+        <script src="/scripts/hangman.js"></script>
+        <script src="/scripts/app.js"></script>
+        
+        
+    </body>
+</html>
