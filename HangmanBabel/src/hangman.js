@@ -45,7 +45,7 @@ class Hangman {
         else {
             
             if (this.remaining === 0) {
-                this.status = 'Failed. Your puzzle is: ' + this.hangmanWord
+                this.status = 'Good try! Your puzzle is: ' + this.hangmanWord.join('')
                 
             }
         }

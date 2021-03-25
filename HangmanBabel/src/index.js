@@ -1,12 +1,12 @@
 import Hangman from './hangman.js'
 import getPuzzle from './request.js'
-
+import uuidv4 from 'uuid/v4'
+import validator from 'validator'
 const outputElement = document.querySelector('#output')
 const attemptLeftElement = document.querySelector('#attempt-left')
 const guessWordElement = document.querySelector('#guessWord-input')
 
 let hangman
-
 document.querySelector('#guess-btn').addEventListener('click', function () {
     hangman.puzzle = guessWordElement.value.toLowerCase()
     
@@ -30,3 +30,5 @@ const startGame = async() => {
 } 
 
 startGame()
+//lml
+
