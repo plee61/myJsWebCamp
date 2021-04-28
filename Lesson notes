@@ -168,3 +168,18 @@ change to:
 fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
 fetch('//ipinfo.io/json?token=e0a43294879563', {})
 
+UUid
+====
+install uuid before including the import to the index.js file
+npm install uuid@3.2.1
+
+webpack
+=======
+if npm run dev-server doesn't load the compiled code and the old code remains running fix it by:
+adding these lines in package.json
+ "watch": "webpack --watch",
+ "second": "webpack-dev-server"
+ first node command line type: npm run watch
+ second node command window: npm run second
+
+=======
